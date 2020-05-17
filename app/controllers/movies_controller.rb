@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     #ここから追記
-    @movies = params[:playlist_id].present? ? Playlist.find(params[playlist_id]).movies : Movie.all
+    @movies = params[:playlist_id].present? ? Playlist.find(params[:playlist_id]).movies : Movie.all
     #ここまで
   end
 
@@ -27,6 +27,9 @@ class MoviesController < ApplicationController
   # POST /movies.json
   def create
     @movie = Movie.new(movie_params)
+    url = params[:movie][:youtube_url]
+    url = url.last(11)
+    @movie.youtube_url = url
 
     respond_to do |format|
       if @movie.save
