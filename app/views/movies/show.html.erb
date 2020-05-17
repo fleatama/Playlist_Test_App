@@ -10,5 +10,9 @@
   <%= @movie.youtube_url %>
 </p>
 
+<% @movie.playlists.each do |playlist| %>
+  <%= playlist.name %>
+<% end %>
+
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

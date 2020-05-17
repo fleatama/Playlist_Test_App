@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_094417) do
+ActiveRecord::Schema.define(version: 2020_05_17_094852) do
 
   create_table "movie_playlist_relations", force: :cascade do |t|
     t.integer "movie_id"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2020_05_17_094417) do
   create_table "movies", force: :cascade do |t|
     t.text "title"
     t.string "youtube_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

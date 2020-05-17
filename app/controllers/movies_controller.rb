@@ -4,7 +4,9 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    #ここから追記
+    @movies = params[:playlist_id].present? ? Playlist.find(params[playlist_id]).movies : Movie.all
+    #ここまで
   end
 
   # GET /movies/1
@@ -69,6 +71,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:title, :youtube_url)
+      params.require(:movie).permit(:title, :youtube_url, playlist_ids: [])
     end
 end

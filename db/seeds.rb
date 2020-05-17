@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Playlist.create([
+{ name: '遊戯王' },
+{ name: 'ASMR' },
+{ name: 'サカナクション' },
+{ name: 'スピッツ'},
+{ name: '内田真礼'},
+{ name: 'ポルノグラフィティ'},
+{ name: 'Mr.Chirldren'}
+])
